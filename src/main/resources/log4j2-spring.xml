@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG" monitorInterval="30">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT" follow="true">
+      <Select>
+        <SystemPropertyArbiter propertyName="CONSOLE_LOG_STRUCTURED_FORMAT">
+          <StructuredLogLayout format="${sys:CONSOLE_LOG_STRUCTURED_FORMAT}" charset="${sys:CONSOLE_LOG_CHARSET}"/>
+        </SystemPropertyArbiter>
+        <DefaultArbiter>
+          <PatternLayout pattern="${sys:CONSOLE_LOG_PATTERN}" charset="${sys:CONSOLE_LOG_CHARSET}"/>
+        </DefaultArbiter>
+      </Select>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
